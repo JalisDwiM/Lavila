@@ -1,0 +1,8 @@
+.loginamb {
+  background-size: cover;
+  background-attachment: fixed;
+  background: url("../img/RS2.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+}
