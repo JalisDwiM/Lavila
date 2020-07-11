@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -19,7 +20,11 @@ class AuthController extends Controller
 
     public function postLogin(Request $request)
     {
-        dd('Login Oke');
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+
+            return redirect('/beranda');
+        }
+        return redirect()->back();
     }
 
     public function getRegister()

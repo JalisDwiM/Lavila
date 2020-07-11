@@ -24,3 +24,6 @@ Route::get('/register', 'AuthController@getRegister');
 Route::post('/register', 'Authcontroller@postRegister')->name('register');
 Route::get('/login', 'AuthController@getLogin');
 Route::post('/login', 'AuthController@postLogin')->name('login');
+Route::get('/beranda', function () {
+    return 'BERANDA';
+});
