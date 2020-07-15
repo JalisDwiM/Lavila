@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+use Laravel\Ui\AuthCommand;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,12 +20,17 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // Auth::routes();
-Route::get('/', 'AuthController@getHome')->name('home');
+//Route::get('/', 'AuthController@getHome')->name('home');
 
 Route::get('/register', 'AuthController@getRegister');
 Route::post('/register', 'Authcontroller@postRegister')->name('register');
 Route::get('/login', 'AuthController@getLogin');
 Route::post('/login', 'AuthController@postLogin')->name('login');
-Route::get('/beranda', function () {
-    return 'BERANDA';
+Route::get('/', function () {
+    return view('home');
 });
+
+//route untuk beranda user
+Route::get('/berandauser', 'BerandaUserController@berandauser');
+Route::get('/antrianuser', 'BerandaUserController@antrianuser');
+Route::get('/historiuser', 'BerandaUserController@historiuser');
