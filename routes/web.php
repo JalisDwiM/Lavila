@@ -22,13 +22,13 @@ use Laravel\Ui\AuthCommand;
 // Auth::routes();
 //Route::get('/', 'AuthController@getHome')->name('home');
 
-Route::get('/register', 'AuthController@getRegister');
-Route::post('/register', 'Authcontroller@postRegister')->name('register');
-Route::get('/login', 'AuthController@getLogin');
-Route::post('/login', 'AuthController@postLogin')->name('login');
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/register', 'AuthController@getRegister')->name('register');
+Route::post('/register', 'Authcontroller@postRegister');
+Route::get('/login', 'AuthController@getLogin')->name('login');
+Route::post('/login', 'AuthController@postLogin');
+// Route::get('/', function () {
+//     return view('home');
+// });
 
 //route untuk beranda user
 Route::get('/berandauser', 'BerandaUserController@berandauser');
