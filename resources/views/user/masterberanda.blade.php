@@ -250,7 +250,7 @@ desired effect
             <li class="active"><a href="{{url ('/berandauser')}}"><i class="fa fa-circle-o"></i> Beranda</a></li>
             <li class="active"><a href="{{url ('/antrianuser')}}"><i class="fa fa-circle-o"></i> Ambil Antrian</a></li>
             <li class="active"><a href="{{url('/historiuser')}}"><i class="fa fa-circle-o"></i> Histori</a></li>
-            <li class="active"><a href="Logout.html"><i class="fa fa-circle nav-icon"></i> Logout</a></li>
+        <li class="active"><a href="{{ route('logout')}}"><i class="fa fa-circle nav-icon"></i> Logout</a></li>
         </ul>
         <!-- /.sidebar-menu -->
         </section>

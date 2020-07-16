@@ -8,9 +8,22 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\User;
 use App\ModelUser;
+use App\Role;
+//use Alert;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AuthController extends Controller
 {
+    public function postLogin(Request $request)
+    {
+        // return $request->all();
+        if (auth()->attempt(['email' => $request->email, 'password' => $request->password])) {
+
+
+            return redirect('/berandauser');
+        }
+        return redirect()->back();
+    }
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
@@ -24,7 +37,7 @@ class AuthController extends Controller
     public function home()
     {
         if (!Session::get('login')) {
-            return redirect('login')->with('alert', 'Kamu harus login dulu');
+            return redirect('login')->with('warning', 'Kamu harus login dulu');
         } else {
             return redirect('/berandauser');
         }
@@ -34,16 +47,6 @@ class AuthController extends Controller
     public function getLogin()
     {
         return view('layouts.login');
-    }
-
-    public function postLogin(Request $request)
-    {
-        // return $request->all();
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-
-            return redirect('/berandauser');
-        }
-        return redirect()->back();
     }
 
 
@@ -59,11 +62,20 @@ class AuthController extends Controller
             'email' => 'required|unique:users',
             'password' => 'required|min:6|confirmed'
         ]);
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password)
         ]);
-        return redirect('login')->with('alert-success', 'Kamu berhasil Register');
+        $user->roles()->attach(Role::where('name', 'user')->first());
+
+        auth()->loginUsingId($user->id);
+        return redirect()->route('berandauser');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login');
     }
 }

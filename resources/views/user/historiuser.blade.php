@@ -1,4 +1,4 @@
-@extends('beranda.masterberanda')
+@extends('user.masterberanda')
 @section('content')
 
 <!-- Content Wrapper. Contains page content -->

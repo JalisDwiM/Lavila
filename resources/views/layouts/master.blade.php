@@ -20,6 +20,7 @@
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
     <div class="wrapper">
+        @include('sweetalert::alert')
         <!-- Navbar -->
         @include('layouts.header')
         <!-- /.navbar -->

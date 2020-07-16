@@ -37,15 +37,25 @@
                         <div class="input-group-text">
                         <span class="fas fa-envelope"></span>
                         </div>
+                    @if ($errors->has('email'))
+                    <div class="invalid-feedback">
+                        {{$errors->first('email')}}
+                    </div>
+                    @endif
                     
                 </div>
                     </div>
                     <div class="input-group mb-3">
-                    <input type="password" name="password" class="form-control" placeholder="Password" required>
+                    <input type="password" name="password" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" placeholder="Password" required>
                     <div class="input-group-append">
                         <div class="input-group-text">
                         <span class="fas fa-lock"></span>
                         </div>
+                        @if ($errors->has('password'))
+                    <div class="invalid-feedback">
+                        {{$errors->first('password')}}
+                    </div>
+                    @endif
                     </div>
                     </div>
                     <div class="row">
@@ -82,6 +92,7 @@
 <script src="{{ asset('frontend')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('frontend')}}/dist/js/adminlte.min.js"></script>
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+@include('sweetalert::alert')
 </body>
 </html>
