@@ -250,8 +250,10 @@ desired effect
     <ul class="sidebar-menu" data-widget="tree">
     <li class="header">MENU</li>
     <!-- Optionally, you can add icons to the links -->
-    <li class="active"><a href="{{ url('/berandaadmin') }}"><i class="fa fa-circle-o"></i> Beranda</a></li>
-    <li class="active"><a href="{{url('/grafikantrian')}}"><i class="fa fa-circle-o"></i> Grafik Antrian</a></li>
+    <li class="active"><a href="{{ url('/admin/beranda') }}"><i class="fa fa-circle-o"></i> Beranda</a></li>
+    <li class="active"><a href="{{url('/admin/grafikantrian')}}"><i class="fa fa-circle-o"></i> Grafik Antrian</a></li>
+    <li class="active"><a href="{{ url('/admin/pengunjung')}}"><i class="fa fa-circle-o"></i> Daftar Pengunjung</a></li>
+    <li class="active"><a href="{{ url('/admin/dokter')}}"><i class="fa fa-circle-o"></i> Daftar Dokter</a></li>
     <li class="treeview">
         <a href="#"><i class="fa fa-circle-o"></i> <span>Daftar Poli</span>
         <span class="pull-right-container">
@@ -259,13 +261,16 @@ desired effect
             </span>
         </a>
         <ul class="treeview-menu">
-        <li><a href="Poli Umum.html">Poli Umum</a></li>
-        <li><a href="Poli Gigi.html">Poli Gigi</a></li>
-        <li><a href="Poli Anak.html">Poli Anak</a></li>
-        <li><a href="Poli Penyakit Dalam.html">Poli Penyakit Dalam</a></li>
+        <li><a href="#">Poli Umum</a></li>
+        <li><a href="#">Poli Gigi</a></li>
+        <li><a href="#">Poli Anak</a></li>
+        <li><a href="#">Poli Mata</a></li>
+        <li><a href="#">Poli Penyakit Dalam</a></li>
         </ul>
     </li>
-    <li class="active"><a href="{{ url('/jadwal')}}"><i class="fa fa-circle-o"></i> Schedule</a></li>
+    <li class="active"><a href="{{ url('/admin/jadwal')}}"><i class="fa fa-circle-o"></i> Schedule</a></li>
+    <li class="active"><a href="{{ url('/admin/roles')}}"><i class="fa fa-circle-o"></i> Roles</a></li>
+    <li class="active"><a href="{{ url('/admin/review')}}"><i class="fa fa-circle-o"></i> Review</a></li>
     <li class="active"><a href="{{route ('logout')}}"><i class="fa fa-circle-o"></i> Logout</a></li>
     </ul>
     <!-- /.sidebar-menu -->

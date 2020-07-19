@@ -9,7 +9,7 @@ class UserController extends Controller
     public function berandauser()
     {
         if (request()->user()->hasRole('user')) {
-            return view('user.berandauser');
+            return view('user.beranda');
         } else {
             return redirect('/')->with('warning', 'bukan hak akses anda');
         }
@@ -19,7 +19,7 @@ class UserController extends Controller
     public function antrianuser()
     {
         if (request()->user()->hasRole('user')) {
-            return view('user.antrianuser');
+            return view('user.antrian');
         } else {
             return redirect('/');
         }
@@ -29,7 +29,7 @@ class UserController extends Controller
     public function historiuser()
     {
         if (request()->user()->hasRole('user')) {
-            return view('user.historiuser');
+            return view('user.histori');
         } else {
             return redirect('/');
         }

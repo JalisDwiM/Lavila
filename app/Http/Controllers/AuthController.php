@@ -9,8 +9,8 @@ use Illuminate\Http\Request;
 use App\User;
 use App\ModelUser;
 use App\Role;
-//use Alert;
-use RealRashid\SweetAlert\Facades\Alert;
+use Alert;
+//use RealRashid\SweetAlert\Facades\Alert;
 
 class AuthController extends Controller
 {
@@ -19,10 +19,9 @@ class AuthController extends Controller
         // return $request->all();
         if (auth()->attempt(['email' => $request->email, 'password' => $request->password])) {
 
-
-            return redirect('/berandauser');
+            return redirect('/user/beranda')->with(['success' => 'Selamat anda berhasil login']);
         }
-        return redirect()->back();
+        return redirect()->back()->with(['error' => 'username atau password tidak cocok']);
     }
     public function __construct()
     {
@@ -39,7 +38,7 @@ class AuthController extends Controller
         if (!Session::get('login')) {
             return redirect('login')->with('warning', 'Kamu harus login dulu');
         } else {
-            return redirect('/berandauser');
+            return redirect('/user/beranda');
         }
     }
 

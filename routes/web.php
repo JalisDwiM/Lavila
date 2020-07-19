@@ -36,16 +36,20 @@ Route::get('/home', function () {
 })->middleware('auth');
 
 //Route untuk beranda admin
-Route::get('/admin', 'AdminController@admin');
-Route::get('/berandaadmin', 'AdminController@berandaadmin');
-Route::get('/grafikantrian', 'AdminController@grafikantrian');
-Route::get('/jadwal', 'AdminController@jadwal');
+Route::get('/admin', 'AdminController@admin')->middleware('auth');
+Route::get('/admin/beranda', 'AdminController@berandaadmin')->middleware('auth');
+Route::get('/admin/grafikantrian', 'AdminController@grafikantrian')->middleware('auth');
+Route::get('/admin/pengunjung', 'AdminController@pengunjung')->middleware('auth');
+Route::get('/admin/dokter', 'AdminController@dokter')->middleware('auth');
+Route::get('/admin/jadwal', 'AdminController@jadwal')->middleware('auth');
+Route::get('/admin/roles', 'AdminController@roles')->middleware('auth');
+Route::get('/admin/review', 'AdminController@review')->middleware('auth');
 
 
 //route untuk beranda user
-Route::get('/berandauser', 'UserController@berandauser')->middleware('auth')->name('berandauser');
-Route::get('/antrianuser', 'UserController@antrianuser')->middleware('auth');
-Route::get('/historiuser', 'UserController@historiuser')->middleware('auth');
+Route::get('/user/beranda', 'UserController@berandauser')->middleware('auth')->name('berandauser');
+Route::get('/user/antrian', 'UserController@antrianuser')->middleware('auth');
+Route::get('/user/histori', 'UserController@historiuser')->middleware('auth');
 
 
 

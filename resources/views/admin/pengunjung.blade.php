@@ -2,14 +2,14 @@
 @section('content')
 
     <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
+    <div class="content-wrapper">
         <!-- Content Header (Page header) -->
 
         <section class="content">
         <!-- Main content -->
         <section class="content-header">
         <h1>
-            Jadwal Dokter 
+            Daftar Pengunjung 
         </h1><br>
         {{-- <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Menu</a></li>
@@ -38,39 +38,35 @@
             <div class="box-body table-responsive no-padding">
                 <table class="table table-hover">
                 <tr>
-                    <th>No. Antrian</th>
-                    <th>Poli</th>
-                    <th>Date</th>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>Email</th>
+                    <th>Password</th>
                     <th>Status</th>
-                    <th>Keterangan</th>
                 </tr>
                 <tr>
                     <td>183</td>
                     <td>John Doe</td>
                     <td>11-7-2014</td>
                     <td><span class="label label-success">Approved</span></td>
-                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
                 </tr>
                 <tr>
                     <td>219</td>
                     <td>Alexander Pierce</td>
                     <td>11-7-2014</td>
                     <td><span class="label label-warning">Pending</span></td>
-                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
                 </tr>
                 <tr>
                     <td>657</td>
                     <td>Bob Doe</td>
                     <td>11-7-2014</td>
                     <td><span class="label label-primary">Approved</span></td>
-                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
                 </tr>
                 <tr>
                     <td>175</td>
                     <td>Mike Doe</td>
                     <td>11-7-2014</td>
                     <td><span class="label label-danger">Denied</span></td>
-                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
                 </tr>
                 </table>
             </div>
@@ -80,8 +76,7 @@
         </div>
         </div>
     
-    <!-- /.content -->
-
+    {{-- <!-- /.content -->
     <!-- form start -->
     <form role="form">
         <div class="form-group">
@@ -99,7 +94,7 @@
         </select>
         </div>
             {{-- <form role="form"> --}}
-            <div class="form-group">
+            {{--<div class="form-group">
                 <label for="exampleInputEmail1">Kuota Antrian</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Nama">
             </div>
@@ -129,11 +124,10 @@
             <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
         <br><br>
-    </form>
+    </form> --}}
 
 
 
 </div>
-
-
+    
 @endsection

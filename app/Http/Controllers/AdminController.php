@@ -26,8 +26,28 @@ class AdminController extends Controller
         return view('admin.grafikantrian');
     }
 
+    public function pengunjung()
+    {
+        return view('admin.pengunjung');
+    }
+
+    public function dokter()
+    {
+        return view('admin.dokter');
+    }
+
     public function jadwal()
     {
         return view('admin.jadwal');
+    }
+
+    public function roles()
+    {
+        return view('admin.roles');
+    }
+
+    public function review()
+    {
+        return view('admin.review');
     }
 }

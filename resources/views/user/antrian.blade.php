@@ -1,10 +1,12 @@
-@extends('user.masterberanda')
+@extends('user.masteruser')
 @section('content')
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
+    @include('flash_message')
+
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>

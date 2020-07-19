@@ -1,8 +1,10 @@
-@extends('user.masterberanda')
+@extends('user.masteruser')
 @section('content')
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
+        @include('flash_message')
+
         <!-- Content Header (Page header) -->
         <section class="content-header">
         <div class="callout callout-info">
@@ -99,6 +101,13 @@
         </section>
         <!-- /.content -->
     </div>
+    <script type="text/javascript">
+        window.setTimeout(function() {
+        $(".alert").fadeTo(500, 0).slideUp(500, function(){
+            $(this).remove(); 
+        });
+    }, 5000);
+    </script>
     <!-- /.content-wrapper -->
     
 @endsection

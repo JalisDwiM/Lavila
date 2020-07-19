@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Lavila | Login</title>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Lavila | Login</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -18,8 +19,9 @@
     <link rel="stylesheet" href="{{ asset('frontend')}}/dist/css/loginamb.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    </head>
-    <body class="hold-transition login-page loginamb" >
+</head>
+<body class="hold-transition login-page loginamb" >
+    @include('flash_message')
         <div class="login-box">
             <div class="login-logo">
                 <a href="{{url('/')}}"><b>Lavila </b>Login</a>
@@ -92,7 +94,12 @@
 <script src="{{ asset('frontend')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('frontend')}}/dist/js/adminlte.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-@include('sweetalert::alert')
+<script type="text/javascript">
+    window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+    });
+}, 5000);
+</script>
 </body>
 </html>
