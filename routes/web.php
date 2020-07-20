@@ -32,7 +32,7 @@ Route::get('/', function () {
     return view('home');
 })->middleware('guest');
 Route::get('/home', function () {
-    return view('user.berandauser');
+    return view('user.beranda');
 })->middleware('auth');
 
 //Route untuk beranda admin
@@ -41,9 +41,21 @@ Route::get('/admin/beranda', 'AdminController@berandaadmin')->middleware('auth')
 Route::get('/admin/grafikantrian', 'AdminController@grafikantrian')->middleware('auth');
 Route::get('/admin/pengunjung', 'AdminController@pengunjung')->middleware('auth');
 Route::get('/admin/dokter', 'AdminController@dokter')->middleware('auth');
+Route::get('/admin/poli', 'AdminController@poli')->middleware('auth');
+// Route::get('/admin/poliumum', 'AdminController@poliumum')->middleware('auth');
+// Route::get('/admin/poligigi', 'AdminController@poligigi')->middleware('auth');
+// Route::get('/admin/polianak', 'AdminController@polianak')->middleware('auth');
+// Route::get('/admin/polipenyakitdalam', 'AdminController@polipenyakitdalam')->middleware('auth');
 Route::get('/admin/jadwal', 'AdminController@jadwal')->middleware('auth');
 Route::get('/admin/roles', 'AdminController@roles')->middleware('auth');
 Route::get('/admin/review', 'AdminController@review')->middleware('auth');
+
+Route::post('/admin/dokter/store', 'DokterController@store');
+
+
+
+
+
 
 
 //route untuk beranda user

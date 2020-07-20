@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -33,7 +34,19 @@ class AdminController extends Controller
 
     public function dokter()
     {
-        return view('admin.dokter');
+        //mengambil data dari tabel doketers
+        $dokter = DB::table('dokters')->get();
+
+        //mengirim data ke view dokter
+        return view('admin.dokter', ['dokter' => $dokter]);
+    }
+    public function poli()
+    {
+        //mengambil data dari tabel doketers
+        // $dokter = DB::table('dokters')->get();
+
+        //mengirim data ke view dokter
+        return view('admin.poli');
     }
 
     public function jadwal()

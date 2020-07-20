@@ -3,6 +3,7 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
+        @include('flash_message')
         <!-- Content Header (Page header) -->
 
         <section class="content">
@@ -36,37 +37,29 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
-                <table class="table table-hover">
+                <table class="table table-hover" >
                 <tr>
                     <th>No</th>
                     <th>Nama</th>
                     <th>Telepon</th>
                     <th>Spesialis</th>
+                    <th>Opsi</th>
                 </tr>
+                <?php $no = 0; ?>
+                @foreach ($dokter as $d)
+                <?php $no++; ?>
                 <tr>
-                    <td>1</td>
-                    <td>Sujoko</td>
-                    <td>0352178563</td>
-                    <td>Dokter Mata</td>
+                    <td>{{$no}}</td>
+                    <td>{{ $d->nama}}</td>
+                    <td>{{ $d->telepon}}</td>
+                    <td>{{ $d->spesialis}}</td>
+                    <td>
+                        <a href="#">Edit</a>
+                        |
+                        <a href="#">Hapus</a>
+                    </td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Alexander Pierce</td>
-                    <td>0987654212</td>
-                    <td>Gigi</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Bob Doe</td>
-                    <td>08765435987</td>
-                    <td>Gizi</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Mike Doe</td>
-                    <td>0456782287</td>
-                    <td>Kanker</td>
-                </tr>
+                @endforeach
                 </table>
             </div>
             <!-- /.box-body -->
@@ -78,14 +71,15 @@
     
     <!-- /.content -->
     <!-- form start -->
-    <form role="form">
+    <form role="form" action="/admin/dokter/store" method="POST">
+        {{csrf_field()}}
         <div class="form-group">
         <label >Nama Dokter </label>
         <input type="name" name="nama" class="form-control" id="nama" placeholder="Masukkan Nama">
         </div>
         <div class="form-group">
-        <label for="exampleInputEmail1">No Telepon </label>
-        <input type="email" name="telepon" class="form-control" placeholder="No Telepon">
+        <label>No Telepon </label>
+        <input type="name" name="telepon" class="form-control" placeholder="No Telepon">
         </div>
         <!-- spesialis -->
         <div class="form-group">
@@ -107,5 +101,12 @@
         <br><br>
     </form>
 </div>
+<script type="text/javascript">
+    window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+    });
+}, 3000);
+</script>
     
 @endsection

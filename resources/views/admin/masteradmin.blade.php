@@ -254,20 +254,7 @@ desired effect
     <li class="active"><a href="{{url('/admin/grafikantrian')}}"><i class="fa fa-circle-o"></i> Grafik Antrian</a></li>
     <li class="active"><a href="{{ url('/admin/pengunjung')}}"><i class="fa fa-circle-o"></i> Daftar Pengunjung</a></li>
     <li class="active"><a href="{{ url('/admin/dokter')}}"><i class="fa fa-circle-o"></i> Daftar Dokter</a></li>
-    <li class="treeview">
-        <a href="#"><i class="fa fa-circle-o"></i> <span>Daftar Poli</span>
-        <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-            </span>
-        </a>
-        <ul class="treeview-menu">
-        <li><a href="#">Poli Umum</a></li>
-        <li><a href="#">Poli Gigi</a></li>
-        <li><a href="#">Poli Anak</a></li>
-        <li><a href="#">Poli Mata</a></li>
-        <li><a href="#">Poli Penyakit Dalam</a></li>
-        </ul>
-    </li>
+    <li class="active"><a href="{{ url('/admin/poli')}}"><i class="fa fa-circle-o"></i> Daftar Poli</a></li>
     <li class="active"><a href="{{ url('/admin/jadwal')}}"><i class="fa fa-circle-o"></i> Schedule</a></li>
     <li class="active"><a href="{{ url('/admin/roles')}}"><i class="fa fa-circle-o"></i> Roles</a></li>
     <li class="active"><a href="{{ url('/admin/review')}}"><i class="fa fa-circle-o"></i> Review</a></li>

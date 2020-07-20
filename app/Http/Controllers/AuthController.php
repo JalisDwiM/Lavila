@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 use App\User;
 use App\ModelUser;
 use App\Role;
-use Alert;
 //use RealRashid\SweetAlert\Facades\Alert;
 
 class AuthController extends Controller
