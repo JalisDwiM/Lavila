@@ -42,15 +42,15 @@ Route::get('/admin/grafikantrian', 'AdminController@grafikantrian')->middleware(
 Route::get('/admin/pengunjung', 'AdminController@pengunjung')->middleware('auth');
 Route::get('/admin/dokter', 'AdminController@dokter')->middleware('auth');
 Route::get('/admin/poli', 'AdminController@poli')->middleware('auth');
-// Route::get('/admin/poliumum', 'AdminController@poliumum')->middleware('auth');
-// Route::get('/admin/poligigi', 'AdminController@poligigi')->middleware('auth');
-// Route::get('/admin/polianak', 'AdminController@polianak')->middleware('auth');
-// Route::get('/admin/polipenyakitdalam', 'AdminController@polipenyakitdalam')->middleware('auth');
 Route::get('/admin/jadwal', 'AdminController@jadwal')->middleware('auth');
 Route::get('/admin/roles', 'AdminController@roles')->middleware('auth');
 Route::get('/admin/review', 'AdminController@review')->middleware('auth');
 
 Route::post('/admin/dokter/store', 'DokterController@store');
+Route::get('/admin/dokter/edit/{id}', 'DokterController@edit');
+Route::post('/admin/dokter/edit', 'DokterController@update');
+Route::get('/admin/dokter/hapus/{id}', 'DokterController@hapus');
+
 
 
 

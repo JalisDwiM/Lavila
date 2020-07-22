@@ -54,9 +54,9 @@
                     <td>{{ $d->telepon}}</td>
                     <td>{{ $d->spesialis}}</td>
                     <td>
-                        <a href="#">Edit</a>
+                    <a href="/admin/dokter/edit/{{$d->id}}">Edit</a>
                         |
-                        <a href="#">Hapus</a>
+                        <a href="/admin/dokter/hapus/{{$d->id}}">Hapus</a>
                     </td>
                 </tr>
                 @endforeach
