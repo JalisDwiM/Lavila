@@ -32,24 +32,25 @@ Route::get('/', function () {
     return view('home');
 })->middleware('guest');
 Route::get('/home', function () {
-    return view('user.beranda');
+    return redirect('/dashboard');
 })->middleware('auth');
 
 //Route untuk beranda admin
-Route::get('/admin', 'AdminController@admin')->middleware('auth');
-Route::get('/admin/beranda', 'AdminController@berandaadmin')->middleware('auth');
-Route::get('/admin/grafikantrian', 'AdminController@grafikantrian')->middleware('auth');
-Route::get('/admin/pengunjung', 'AdminController@pengunjung')->middleware('auth');
-Route::get('/admin/dokter', 'AdminController@dokter')->middleware('auth');
-Route::get('/admin/poli', 'AdminController@poli')->middleware('auth');
-Route::get('/admin/jadwal', 'AdminController@jadwal')->middleware('auth');
-Route::get('/admin/roles', 'AdminController@roles')->middleware('auth');
-Route::get('/admin/review', 'AdminController@review')->middleware('auth');
+// Route::get('/admin', 'AdminController@admin')->middleware('auth');
+Route::get('/dashboard', 'AdminController@berandaadmin')->middleware('auth')->name('dashboard');
+Route::get('/grafikantrian', 'AdminController@grafikantrian')->middleware('auth');
+Route::get('/pengunjung', 'AdminController@pengunjung')->middleware('auth');
+Route::get('/dokter', 'AdminController@dokter')->middleware('auth');
+Route::get('/poli', 'AdminController@poli')->middleware('auth');
+Route::get('/jadwal', 'AdminController@jadwal')->middleware('auth');
+Route::get('/roles', 'AdminController@roles')->middleware('auth');
+Route::get('/review', 'AdminController@review')->middleware('auth');
+Route::get('/admin/register', 'AdminController@register')->middleware('guest');
 
-Route::post('/admin/dokter/store', 'DokterController@store');
-Route::get('/admin/dokter/edit/{id}', 'DokterController@edit');
-Route::post('/admin/dokter/edit', 'DokterController@update');
-Route::get('/admin/dokter/hapus/{id}', 'DokterController@hapus');
+Route::post('/dokter/store', 'DokterController@store');
+Route::get('/dokter/edit/{id}', 'DokterController@edit');
+Route::post('/dokter/{id}/update', 'DokterController@update');
+Route::get('/dokter/hapus/{id}', 'DokterController@hapus');
 
 
 
@@ -59,9 +60,9 @@ Route::get('/admin/dokter/hapus/{id}', 'DokterController@hapus');
 
 
 //route untuk beranda user
-Route::get('/user/beranda', 'UserController@berandauser')->middleware('auth')->name('berandauser');
-Route::get('/user/antrian', 'UserController@antrianuser')->middleware('auth');
-Route::get('/user/histori', 'UserController@historiuser')->middleware('auth');
+Route::get('/beranda', 'UserController@berandauser')->middleware('auth');
+Route::get('/antrian', 'UserController@antrianuser')->middleware('auth');
+Route::get('/histori', 'UserController@historiuser')->middleware('auth');
 
 
 

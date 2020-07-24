@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Dokter;
 
 class DokterController extends Controller
 {
@@ -20,15 +21,18 @@ class DokterController extends Controller
 
     public function edit($id)
     {
-        $dokter = \App\Dokter::find($id); //mengambil data dokter berdasarkan id
+        $dokter = Dokter::find($id); //mengambil data dokter berdasarkan id
 
         return view('admin.form.formedit', ['dokter' => $dokter]);
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
+        // return $request->id;
         // return $request->all();
-        //update data dokter
+        // //update data dokter
+        // $dokter = Dokter::find($id);
+        // $dokter->update($request->all());
         DB::table('dokters')->where('id', $request->id)->update([
             'nama' => $request->nama,
             'telepon' => $request->telepon,

@@ -17,8 +17,10 @@ class AuthController extends Controller
     {
         // return $request->all();
         if (auth()->attempt(['email' => $request->email, 'password' => $request->password])) {
-
-            return redirect('/user/beranda')->with(['success' => 'Selamat anda berhasil login']);
+            // $user = Auth::user();
+            // // foreach ($user->roles as $r) {
+            // //     if ($r->name == 'admin') {
+            return redirect('/dashboard')->with(['success' => 'Selamat anda berhasil login']);
         }
         return redirect()->back()->with(['error' => 'username atau password tidak cocok']);
     }
@@ -65,10 +67,9 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password)
         ]);
-        $user->roles()->attach(Role::where('name', 'user')->first());
-
+        $user->roles()->attach($request->input('role'));
         auth()->loginUsingId($user->id);
-        return redirect()->route('berandauser');
+        return redirect()->route('dashboard');
     }
 
     public function logout()

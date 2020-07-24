@@ -8,14 +8,14 @@ use Illuminate\Support\Facades\DB;
 class AdminController extends Controller
 {
 
-    public function admin()
-    {
-        if (request()->user()->hasRole('admin')) {
-            return view('welcome');
-        } else {
-            return redirect('/');
-        }
-    }
+    // public function admin()
+    // {
+    //     if (request()->user()->hasRole('admin')) {
+    //         return view('welcome');
+    //     } else {
+    //         return redirect('/');
+    //     }
+    // }
 
     public function berandaadmin()
     {
@@ -62,5 +62,10 @@ class AdminController extends Controller
     public function review()
     {
         return view('admin.review');
+    }
+
+    public function register()
+    {
+        return view('admin.registeradmin');
     }
 }

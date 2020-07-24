@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Beranda | Admin</title>
+<title>Dashboard</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <link rel="stylesheet" href="{{ asset('frontend')}}/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -249,16 +249,33 @@ desired effect
     <!-- Sidebar Menu -->
     <ul class="sidebar-menu" data-widget="tree">
     <li class="header">MENU</li>
+    @foreach (Auth::user()->roles as $r) 
+        @if ($r->name == 'admin') 
+        <li class="active"><a href="{{ url('/dashboard') }}"><i class="fa fa-circle-o"></i> Beranda</a></li>
+        <li class="active"><a href="{{url('/grafikantrian')}}"><i class="fa fa-circle-o"></i> Grafik Antrian</a></li>
+        <li class="active"><a href="{{ url('/pengunjung')}}"><i class="fa fa-circle-o"></i> Daftar Pengunjung</a></li>
+        <li class="active"><a href="{{ url('/dokter')}}"><i class="fa fa-circle-o"></i> Daftar Dokter</a></li>
+        <li class="active"><a href="{{ url('/poli')}}"><i class="fa fa-circle-o"></i> Daftar Poli</a></li>
+        <li class="active"><a href="{{ url('/jadwal')}}"><i class="fa fa-circle-o"></i> Schedule</a></li>
+        <li class="active"><a href="{{ url('/roles')}}"><i class="fa fa-circle-o"></i> Roles</a></li>
+        <li class="active"><a href="{{ url('/review')}}"><i class="fa fa-circle-o"></i> Review</a></li>
+        <li class="active"><a href="{{route ('logout')}}"><i class="fa fa-circle-o"></i> Logout</a></li>
+        {{-- return redirect('/admin/beranda')->with(['success' => 'Selamat anda berhasil login']); --}}
+        @elseif ($r->name == 'user')
+        <li class="active"><a href="{{url ('/dashboard')}}"><i class="fa fa-circle-o"></i> Beranda</a></li>
+        <li class="active"><a href="{{url ('/antrian')}}"><i class="fa fa-circle-o"></i> Ambil Antrian</a></li>
+        <li class="active"><a href="{{url('/histori')}}"><i class="fa fa-circle-o"></i> Histori</a></li>
+        <li class="active"><a href="{{ route('logout')}}"><i class="fa fa-circle nav-icon"></i> Logout</a></li>  
+        @else 
+        <li class="active"><a href="{{ route('logout')}}"><i class="fa fa-circle nav-icon"></i> Logout</a></li>  
+
+
+        @endif
+        @endforeach
+
+            {{-- return redirect('/user/beranda')->with(['success' => 'Selamat anda berhasil login']); --}}
+        
     <!-- Optionally, you can add icons to the links -->
-    <li class="active"><a href="{{ url('/admin/beranda') }}"><i class="fa fa-circle-o"></i> Beranda</a></li>
-    <li class="active"><a href="{{url('/admin/grafikantrian')}}"><i class="fa fa-circle-o"></i> Grafik Antrian</a></li>
-    <li class="active"><a href="{{ url('/admin/pengunjung')}}"><i class="fa fa-circle-o"></i> Daftar Pengunjung</a></li>
-    <li class="active"><a href="{{ url('/admin/dokter')}}"><i class="fa fa-circle-o"></i> Daftar Dokter</a></li>
-    <li class="active"><a href="{{ url('/admin/poli')}}"><i class="fa fa-circle-o"></i> Daftar Poli</a></li>
-    <li class="active"><a href="{{ url('/admin/jadwal')}}"><i class="fa fa-circle-o"></i> Schedule</a></li>
-    <li class="active"><a href="{{ url('/admin/roles')}}"><i class="fa fa-circle-o"></i> Roles</a></li>
-    <li class="active"><a href="{{ url('/admin/review')}}"><i class="fa fa-circle-o"></i> Review</a></li>
-    <li class="active"><a href="{{route ('logout')}}"><i class="fa fa-circle-o"></i> Logout</a></li>
     </ul>
     <!-- /.sidebar-menu -->
 </section>

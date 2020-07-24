@@ -23,7 +23,7 @@
         @include('sweetalert::alert')
         <div class="register-box">
             <div class="register-logo">
-                <a href="{{url('/')}}"><b>Lavila </b> Register</a>
+                <a href="{{url('/')}}"><b>Lavila Admin </b> Register</a>
                 </div>
             
                 <div class="card">
@@ -89,11 +89,19 @@
                         </div>
                         @endif
                     </div>
+
+                    <div class="input-group mb-3">
+                        <select class="form-control" name="role">
+                            <option value="1">admin</option>
+                            <option value="2">user</option>
+                            <option value="3">dokter</option>
+                        </select>
+                    </div>
+
                     <div class="row">
                         <div class="col-8">
                         <div class="icheck-primary">
                         <input type="checkbox" class="{{$errors->has('terms') ? 'is_invalid' : ''}}" id="agreeTerms" name="terms" value="agree">
-                        <input type="text" class="{{$errors->has('terms') ? 'is_invalid' : ''}}" name="role" value="2">
                         
                         @if ($errors->has('terms'))
                         <div class="invalid-feedback">

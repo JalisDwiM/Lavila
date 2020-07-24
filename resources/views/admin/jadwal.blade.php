@@ -38,14 +38,16 @@
             <div class="box-body table-responsive no-padding">
                 <table class="table table-hover">
                 <tr>
-                    <th>No. Antrian</th>
+                    <th>No</th>
+                    <th>Nama</th>
                     <th>Poli</th>
-                    <th>Date</th>
-                    <th>Status</th>
+                    <th>Kuota</th>
+                    <th>Tanggal</th>
                     <th>Keterangan</th>
                 </tr>
                 <tr>
                     <td>183</td>
+                    <td>John Doe</td>
                     <td>John Doe</td>
                     <td>11-7-2014</td>
                     <td><span class="label label-success">Approved</span></td>
@@ -54,6 +56,7 @@
                 <tr>
                     <td>219</td>
                     <td>Alexander Pierce</td>
+                    <td>Alexander Pierce</td>
                     <td>11-7-2014</td>
                     <td><span class="label label-warning">Pending</span></td>
                     <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
@@ -61,12 +64,14 @@
                 <tr>
                     <td>657</td>
                     <td>Bob Doe</td>
+                    <td>Bob Doe</td>
                     <td>11-7-2014</td>
                     <td><span class="label label-primary">Approved</span></td>
                     <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
                 </tr>
                 <tr>
                     <td>175</td>
+                    <td>Mike Doe</td>
                     <td>Mike Doe</td>
                     <td>11-7-2014</td>
                     <td><span class="label label-danger">Denied</span></td>
@@ -85,8 +90,10 @@
     <!-- form start -->
     <form role="form">
         <div class="form-group">
-        <label for="exampleInputEmail1">Nama Dokter </label>
-        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Nama">
+        <label >Nama Dokter </label>
+        <select class="form-control">
+            <option>dr.jalis</option>
+        </select>
         </div>
         <!-- Poli -->
         <div class="form-group">
@@ -100,8 +107,8 @@
         </div>
             {{-- <form role="form"> --}}
             <div class="form-group">
-                <label for="exampleInputEmail1">Kuota Antrian</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Nama">
+                <label>Kuota Antrian</label>
+                <input type="email" class="form-control" id="kuota" placeholder="Masukkan kuota">
             </div>
         <!-- Date -->
         <div class="form-group">

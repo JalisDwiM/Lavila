@@ -4,6 +4,7 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         @include('flash_message')
+        @include('admin.modal_delete')
         <!-- Content Header (Page header) -->
 
         <section class="content">
@@ -54,9 +55,9 @@
                     <td>{{ $d->telepon}}</td>
                     <td>{{ $d->spesialis}}</td>
                     <td>
-                    <a href="/admin/dokter/edit/{{$d->id}}">Edit</a>
-                        |
-                        <a href="/admin/dokter/hapus/{{$d->id}}">Hapus</a>
+                    <a href="/admin/dokter/edit/{{$d->id}}" class="glyphicon glyphicon-edit btn btn-xs btn-warning">Edit</a>
+                        
+                    <a href="/admin/dokter/hapus/{{$d->id}}" data-toggle="modal" class="glyphicon glyphicon-trash btn btn-xs btn-danger">Hapus</a>
                     </td>
                 </tr>
                 @endforeach
