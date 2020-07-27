@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\User;
+use App\Schedule;
 
 class AdminController extends Controller
 {
@@ -51,7 +53,12 @@ class AdminController extends Controller
 
     public function jadwal()
     {
-        return view('admin.jadwal');
+        $schedules = Schedule::all();
+        $users = User::with(['roles' => function ($query) {
+            $query->where('name', '=', 'dokter');
+        }])->get();
+
+        return view('admin.jadwal', compact('users', 'schedules'));
     }
 
     public function roles()
@@ -67,5 +74,21 @@ class AdminController extends Controller
     public function register()
     {
         return view('admin.registeradmin');
+    }
+    public function postRegister(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|min:4',
+            'email' => 'required|unique:users',
+            'password' => 'required|min:6|confirmed'
+        ]);
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password)
+        ]);
+        $user->roles()->attach($request->input('role'));
+        // auth()->loginUsingId($user->id);
+        return redirect()->back();
     }
 }

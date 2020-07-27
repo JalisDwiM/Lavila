@@ -40,17 +40,21 @@ Route::get('/home', function () {
 Route::get('/dashboard', 'AdminController@berandaadmin')->middleware('auth')->name('dashboard');
 Route::get('/grafikantrian', 'AdminController@grafikantrian')->middleware('auth');
 Route::get('/pengunjung', 'AdminController@pengunjung')->middleware('auth');
-Route::get('/dokter', 'AdminController@dokter')->middleware('auth');
+Route::get('/dokter', 'DokterController@dokter_role')->middleware('auth');
 Route::get('/poli', 'AdminController@poli')->middleware('auth');
 Route::get('/jadwal', 'AdminController@jadwal')->middleware('auth');
 Route::get('/roles', 'AdminController@roles')->middleware('auth');
 Route::get('/review', 'AdminController@review')->middleware('auth');
-Route::get('/admin/register', 'AdminController@register')->middleware('guest');
+Route::get('/admin/register', 'AdminController@register')->middleware('auth');
+Route::post('/admin/register', 'AdminController@postregister')->middleware('auth');
+
 
 Route::post('/dokter/store', 'DokterController@store');
 Route::get('/dokter/edit/{id}', 'DokterController@edit');
 Route::post('/dokter/{id}/update', 'DokterController@update');
 Route::get('/dokter/hapus/{id}', 'DokterController@hapus');
+
+Route::post('/jadwal/store', 'ScheduleController@store');
 
 
 

@@ -5,9 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Dokter;
+use App\User;
 
 class DokterController extends Controller
 {
+    public function dokter_role()
+    {
+        //mengambil data dari tabel doketers
+        $user = User::with(['roles' => function ($query) {
+            $query->where('name', '=', 'dokter');
+        }])->get();
+
+        //mengirim data ke view dokter
+        return view('admin.dokter', ['user' => $user]);
+    }
+
     public function store(Request $request)
     {
         DB::table('dokters')->insert([

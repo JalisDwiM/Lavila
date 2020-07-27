@@ -259,6 +259,7 @@ desired effect
         <li class="active"><a href="{{ url('/jadwal')}}"><i class="fa fa-circle-o"></i> Schedule</a></li>
         <li class="active"><a href="{{ url('/roles')}}"><i class="fa fa-circle-o"></i> Roles</a></li>
         <li class="active"><a href="{{ url('/review')}}"><i class="fa fa-circle-o"></i> Review</a></li>
+        <li class="active"><a href="{{ url('/admin/register')}}"><i class="fa fa-circle-o"></i> Register Admin</a></li>
         <li class="active"><a href="{{route ('logout')}}"><i class="fa fa-circle-o"></i> Logout</a></li>
         {{-- return redirect('/admin/beranda')->with(['success' => 'Selamat anda berhasil login']); --}}
         @elseif ($r->name == 'user')

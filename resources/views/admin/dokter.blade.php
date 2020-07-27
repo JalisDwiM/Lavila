@@ -42,24 +42,26 @@
                 <tr>
                     <th>No</th>
                     <th>Nama</th>
-                    <th>Telepon</th>
+                    <th>Email</th>
                     <th>Spesialis</th>
                     <th>Opsi</th>
                 </tr>
                 <?php $no = 0; ?>
-                @foreach ($dokter as $d)
+                @foreach ($user as $d)
                 <?php $no++; ?>
+                @foreach ($d->roles as $r)
                 <tr>
                     <td>{{$no}}</td>
-                    <td>{{ $d->nama}}</td>
-                    <td>{{ $d->telepon}}</td>
-                    <td>{{ $d->spesialis}}</td>
+                    <td>{{$d->name}}</td>
+                    <td>{{$d->email}}</td>
+                    <td>{{$r->name}}</td>
                     <td>
                     <a href="/admin/dokter/edit/{{$d->id}}" class="glyphicon glyphicon-edit btn btn-xs btn-warning">Edit</a>
                         
                     <a href="/admin/dokter/hapus/{{$d->id}}" data-toggle="modal" class="glyphicon glyphicon-trash btn btn-xs btn-danger">Hapus</a>
                     </td>
                 </tr>
+                @endforeach
                 @endforeach
                 </table>
             </div>
@@ -72,7 +74,7 @@
     
     <!-- /.content -->
     <!-- form start -->
-    <form role="form" action="/admin/dokter/store" method="POST">
+    {{-- <form role="form" action="/admin/dokter/store" method="POST">
         {{csrf_field()}}
         <div class="form-group">
         <label >Nama Dokter </label>
@@ -100,7 +102,7 @@
             <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
         <br><br>
-    </form>
+    </form> --}}
 </div>
 <script type="text/javascript">
     window.setTimeout(function() {

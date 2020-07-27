@@ -37,46 +37,29 @@
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
                 <table class="table table-hover">
-                <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>Poli</th>
-                    <th>Kuota</th>
-                    <th>Tanggal</th>
-                    <th>Keterangan</th>
-                </tr>
-                <tr>
-                    <td>183</td>
-                    <td>John Doe</td>
-                    <td>John Doe</td>
-                    <td>11-7-2014</td>
-                    <td><span class="label label-success">Approved</span></td>
+                    
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Poli</th>
+                        <th>Kuota</th>
+                        <th>Tanggal</th>
+                        <th>Keterangan</th>
+                    </tr>
+                    <?php $no=0; ?>
+                    @foreach ($schedules as $u)
+
+                    <?php $no++;?>
+                    <tr>
+                    <td>{{$no}}</td>
+                    <td>{{$u->user->name}}</td>
+                    <td>{{$u->poli}}</td>
+                    <td>{{$u->kuota}}</td>
+                    <td>{{$u->date}}</td>
                     <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
                 </tr>
-                <tr>
-                    <td>219</td>
-                    <td>Alexander Pierce</td>
-                    <td>Alexander Pierce</td>
-                    <td>11-7-2014</td>
-                    <td><span class="label label-warning">Pending</span></td>
-                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                </tr>
-                <tr>
-                    <td>657</td>
-                    <td>Bob Doe</td>
-                    <td>Bob Doe</td>
-                    <td>11-7-2014</td>
-                    <td><span class="label label-primary">Approved</span></td>
-                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                </tr>
-                <tr>
-                    <td>175</td>
-                    <td>Mike Doe</td>
-                    <td>Mike Doe</td>
-                    <td>11-7-2014</td>
-                    <td><span class="label label-danger">Denied</span></td>
-                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                </tr>
+                @endforeach
+
                 </table>
             </div>
             <!-- /.box-body -->
@@ -88,17 +71,22 @@
     <!-- /.content -->
 
     <!-- form start -->
-    <form role="form">
+    <form action="{{url('/jadwal/store')}}" method="POST" role="form">
+        {{csrf_field()}}
         <div class="form-group">
         <label >Nama Dokter </label>
-        <select class="form-control">
-            <option>dr.jalis</option>
+        <select name="user_id" class="form-control">
+        @foreach($users as $d)
+        @foreach($d->roles as $r)
+            <option value="{{$d->id}}">{{$d->name}}</option>
+        @endforeach
+        @endforeach
         </select>
         </div>
         <!-- Poli -->
         <div class="form-group">
-        <label>Select</label>
-        <select class="form-control">
+        <label>Pilih Poli</label>
+        <select name="poli" class="form-control">
             <option>Poli umum</option>
             <option>Poli Gigi</option>
             <option>Poli Anak</option>
@@ -108,7 +96,7 @@
             {{-- <form role="form"> --}}
             <div class="form-group">
                 <label>Kuota Antrian</label>
-                <input type="email" class="form-control" id="kuota" placeholder="Masukkan kuota">
+                <input type="text" name="kuota" class="form-control" id="kuota" placeholder="Masukkan kuota">
             </div>
         <!-- Date -->
         <div class="form-group">
@@ -118,7 +106,7 @@
         <div class="input-group-addon">
             <i class="fa fa-calendar"></i>
         </div>
-        <input type="text" class="form-control pull-right datepicker" id="date">
+        <input type="text" name="date" class="form-control pull-right datepicker" id="date">
         </div>
         <!-- /.input group -->
         </div>

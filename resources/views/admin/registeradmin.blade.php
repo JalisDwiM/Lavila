@@ -30,7 +30,7 @@
                 <div class="card-body register-card-body"> 
                     <p class="login-box-msg">Register a new membership</p>
             
-                    <form action="{{ url('/register') }}" method="POST">  {{-- form awalll register--}}
+                    <form action="{{ url('/admin/register') }}" method="POST">  {{-- form awalll register--}}
                     {{ csrf_field() }}
                     <div class="input-group mb-3">
                     <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" placeholder="Full name" name="name" value="{{old('name')}}" required autofocus>

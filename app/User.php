@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return $this->roles()->where('name', $role)->count() == 1;
     }
+
+    public function schedules()
+    {
+        return $this->belongsToMany(Schedule::class, 'user_id');
+    }
 }
