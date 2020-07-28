@@ -1,4 +1,4 @@
-@extends('user.masteruser')
+@extends('admin.masteradmin')
 @section('content')
 
 
@@ -23,8 +23,8 @@
 <!-- form start -->
 <form role="form">
 <div class="form-group">
-    <label for="exampleInputName">Nama </label>
-    <input type="email" class="form-control" id="exampleInputName" placeholder="Masukkan Nama">
+    <label>Nama </label>
+    <input type="text" class="form-control" id="name" value="{{ auth()->user()->name}}" placeholder="Masukkan Nama">
 </div>
 
 

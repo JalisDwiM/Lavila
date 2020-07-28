@@ -1,10 +1,10 @@
-<div class="modal modal-success fade" id="poligigi">
+<div class="modal modal-info fade" id="daftarpoli">
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">POLI GIGI</h4>
+            <h4 class="modal-title">DAFTAR POLI</h4>
         </div>
         <div class="modal-body">
             <div class="box">
@@ -16,19 +16,19 @@
                         <thead>
                         <tr>
                         <th>No</th>
-                        <th>Nama Pengunjung</th>
-                        <th>Nomor Antrian</th>
-                        <th>Waktu dan Tanggal</th>
-                        <th>Status</th>
+                        <th>Nama Poli</th>
+                        <th>Kode</th>
                         </tr>
                         </thead>
+                        <?php $no=0;?>
+                        @foreach ($department as $d)
+                        <?php $no++;?>    
                         <tr>
-                        <td>Tasman</td>
-                        <td>Internet Explorer 5.1</td>
-                        <td>Mac OS 7.6-9</td>
-                        <td>1</td>
-                        <td>C</td>
+                            <td>{{$no}}</td>
+                            <td>{{$d->nama}}</td>
+                            <td>{{$d->kode}}</td>
                         </tr>
+                        @endforeach
                     </table>
                 </div>
                 <!-- /.box-body -->

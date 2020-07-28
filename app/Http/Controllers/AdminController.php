@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Department;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -46,10 +47,11 @@ class AdminController extends Controller
     public function poli()
     {
         //mengambil data dari tabel doketers
-        // $dokter = DB::table('dokters')->get();
+        $department = Department::all();
+        $jmldepart = Department::count();
 
         //mengirim data ke view dokter
-        return view('admin.poli');
+        return view('admin.poli', compact('department', 'jmldepart'));
     }
 
     public function jadwal()

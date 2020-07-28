@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Ui\AuthCommand;
@@ -48,6 +49,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/review', 'AdminController@review');
     Route::get('/admin/register', 'AdminController@register');
     Route::post('/admin/register', 'AdminController@postregister');
+    Route::post('/tambahpoli', 'DepartmentController@store');
 });
 
 
@@ -68,6 +70,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/beranda', 'UserController@berandauser');
     Route::get('/antrian', 'UserController@antrianuser');
     Route::get('/histori', 'UserController@historiuser');
+    Route::get('/pesan', 'UserController@pesanuser');
 
 
     Route::get('/logout', 'AuthController@logout')->name('logout');

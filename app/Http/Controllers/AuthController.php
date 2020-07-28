@@ -17,9 +17,9 @@ class AuthController extends Controller
     {
         // return $request->all();
         if (auth()->attempt(['email' => $request->email, 'password' => $request->password])) {
-            // $user = Auth::user();
-            // // foreach ($user->roles as $r) {
-            // //     if ($r->name == 'admin') {
+            $user = Auth::user();
+            // foreach ($user->roles as $r) {
+            //     if ($r->name == 'admin') {
             return redirect('/dashboard')->with(['success' => 'Selamat anda berhasil login']);
         }
         return redirect()->back()->with(['error' => 'username atau password tidak cocok']);

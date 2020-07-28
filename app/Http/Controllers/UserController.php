@@ -35,4 +35,15 @@ class UserController extends Controller
         }
         // return view('beranda.historiuser');
     }
+
+    public function pesanuser()
+    {
+        if (request()->user()->hasRole('user')) {
+            return view('user.pesan');
+        } else {
+            return redirect('/');
+        }
+
+        // return view('beranda.historiuser');
+    }
 }

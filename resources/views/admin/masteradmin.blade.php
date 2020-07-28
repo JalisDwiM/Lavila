@@ -266,6 +266,7 @@ desired effect
         <li class="active"><a href="{{url ('/dashboard')}}"><i class="fa fa-circle-o"></i> Beranda</a></li>
         <li class="active"><a href="{{url ('/antrian')}}"><i class="fa fa-circle-o"></i> Ambil Antrian</a></li>
         <li class="active"><a href="{{url('/histori')}}"><i class="fa fa-circle-o"></i> Histori</a></li>
+        <li class="active"><a href="{{url('/pesan')}}"><i class="fa fa-circle-o"></i> Review</a></li>
         <li class="active"><a href="{{ route('logout')}}"><i class="fa fa-circle nav-icon"></i> Logout</a></li>  
         @else 
         <li class="active"><a href="{{ route('logout')}}"><i class="fa fa-circle nav-icon"></i> Logout</a></li>  
