@@ -37,36 +37,25 @@
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
                 <table class="table table-hover">
-                <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>Roles</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Paijo</td>
-                    <td>paijo@gmail.com</td>
-                    <td>user</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Alexander Pierce</td>
-                    <td>Alex@yahoo.com</td>
-                    <td>admin</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Bob Doe</td>
-                    <td>bob@gmail.com</td>
-                    <td>user</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Mike Doe</td>
-                    <td>mike@gmail.com</td>
-                    <td>user</td>
-                </tr>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Roles</th>
+                    </tr>
+                    <?php $no=0;?>
+                    @foreach ($user as $u)
+                    <?php $no++;?>
+                    @foreach ($u->roles as $r)
+                        
+                    <tr>
+                        <td>{{$no}}</td>
+                        <td>{{$u->name}}</td>
+                        <td>{{$u->email}}</td>
+                        <td>{{$r->name}}</td>
+                    </tr>
+                    @endforeach
+                    @endforeach
                 </table>
             </div>
             <!-- /.box-body -->
@@ -78,7 +67,7 @@
     
     <!-- /.content -->
     <!-- form start -->
-    <form role="form">
+    {{-- <form role="form">
         <div class="form-group">
         <label >Nama </label>
         <input type="name" name="nama" class="form-control" id="nama" placeholder="Masukkan Nama">
@@ -99,7 +88,7 @@
             <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
         <br><br>
-    </form>
+    </form> --}}
 </div>
     
 @endsection

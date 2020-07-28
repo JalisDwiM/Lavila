@@ -35,18 +35,20 @@ Route::get('/home', function () {
     return redirect('/dashboard');
 })->middleware('auth');
 
-//Route untuk beranda admin
-// Route::get('/admin', 'AdminController@admin')->middleware('auth');
-Route::get('/dashboard', 'AdminController@berandaadmin')->middleware('auth')->name('dashboard');
-Route::get('/grafikantrian', 'AdminController@grafikantrian')->middleware('auth');
-Route::get('/pengunjung', 'AdminController@pengunjung')->middleware('auth');
-Route::get('/dokter', 'DokterController@dokter_role')->middleware('auth');
-Route::get('/poli', 'AdminController@poli')->middleware('auth');
-Route::get('/jadwal', 'AdminController@jadwal')->middleware('auth');
-Route::get('/roles', 'AdminController@roles')->middleware('auth');
-Route::get('/review', 'AdminController@review')->middleware('auth');
-Route::get('/admin/register', 'AdminController@register')->middleware('auth');
-Route::post('/admin/register', 'AdminController@postregister')->middleware('auth');
+Route::group(['middleware' => 'auth'], function () {
+    //Route untuk beranda admin
+    // Route::get('/admin', 'AdminController@admin')->middleware('auth');
+    Route::get('/dashboard', 'AdminController@berandaadmin')->name('dashboard');
+    Route::get('/grafikantrian', 'AdminController@grafikantrian');
+    Route::get('/pengunjung', 'AdminController@pengunjung');
+    Route::get('/dokter', 'DokterController@dokter_role');
+    Route::get('/poli', 'AdminController@poli');
+    Route::get('/jadwal', 'AdminController@jadwal');
+    Route::get('/roles', 'AdminController@roles');
+    Route::get('/review', 'AdminController@review');
+    Route::get('/admin/register', 'AdminController@register');
+    Route::post('/admin/register', 'AdminController@postregister');
+});
 
 
 Route::post('/dokter/store', 'DokterController@store');
@@ -62,13 +64,12 @@ Route::post('/jadwal/store', 'ScheduleController@store');
 
 
 
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/beranda', 'UserController@berandauser');
+    Route::get('/antrian', 'UserController@antrianuser');
+    Route::get('/histori', 'UserController@historiuser');
 
+
+    Route::get('/logout', 'AuthController@logout')->name('logout');
+});
 //route untuk beranda user
-Route::get('/beranda', 'UserController@berandauser')->middleware('auth');
-Route::get('/antrian', 'UserController@antrianuser')->middleware('auth');
-Route::get('/histori', 'UserController@historiuser')->middleware('auth');
-
-
-
-
-Route::get('/logout', 'AuthController@logout')->middleware('auth')->name('logout');

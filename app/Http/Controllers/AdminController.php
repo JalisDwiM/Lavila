@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Schedule;
 
@@ -63,7 +64,8 @@ class AdminController extends Controller
 
     public function roles()
     {
-        return view('admin.roles');
+        $user = User::all();
+        return view('admin.roles', compact('user'));
     }
 
     public function review()
